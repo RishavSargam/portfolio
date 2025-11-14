@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rishav Raj — Portfolio</title>
+
+  <!-- Tailwind Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // enable class-based dark mode
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: {} }
+    }
+  </script>
+
+  <style>
+    /* small helper animations to replace framer-motion hover/tone */
+    .card-anim { transition: transform .18s ease, box-shadow .18s ease; }
+    .card-anim:hover { transform: translateY(-6px); box-shadow: 0 10px 30px rgba(2,6,23,0.12); }
+  </style>
+</head>
+
+<body class="antialiased bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800 text-slate-900 dark:text-slate-100 transition-colors">
+  <div class="max-w-6xl mx-auto p-6">
+
+    <!-- Top bar -->
+    <nav class="flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-600 to-teal-400 flex items-center justify-center text-white font-extrabold text-lg shadow-md">RR</div>
+        <div>
+          <h1 class="text-lg font-semibold">Rishav Raj</h1>
+          <p class="text-xs opacity-70">SDE-ready • Full-stack • DSA-focused</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button id="themeToggle" class="p-2 rounded-lg ring-1 ring-slate-200 dark:ring-slate-700" title="Toggle theme">
+          <!-- icons swap via JS -->
+          <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" class="hidden" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        </button>
+
+        <a class="hidden sm:inline-flex items-center gap-2 px-3 py-1 rounded-lg ring-1 ring-slate-200 dark:ring-slate-700" href="tel:+919304749920">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.09 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72c.12.86.37 1.7.72 2.49a2 2 0 0 1-.45 2.11L9.91 9.91a16 16 0 0 0 6 6l1.59-1.59a2 2 0 0 1 2.11-.45c.79.35 1.63.6 2.49.72A2 2 0 0 1 22 16.92z"/></svg>
+          +91 93047 49920
+        </a>
+
+        <a class="hidden sm:inline-flex items-center gap-2 px-3 py-1 rounded-lg ring-1 ring-slate-200 dark:ring-slate-700" href="mailto:rishavani24@gmail.com">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+          rishavani24@gmail.com
+        </a>
+
+        <a id="downloadHeader" class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-indigo-600 text-white shadow" href="resume.pdf" download="Rishav_Raj_Resume.pdf">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Resume
+        </a>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="mt-8 grid md:grid-cols-3 gap-6 items-start">
+      <div class="md:col-span-2 animate-fade-in">
+        <h2 class="text-3xl md:text-4xl font-extrabold leading-tight">Hi, I'm Rishav — I build reliable systems and delightful frontends, Back-ends, Fullstack.</h2>
+        <p class="mt-4 text-slate-600 dark:text-slate-300">B.Tech CS student. I practise DSA daily and design scalable systems for interview readiness. I enjoy clean interfaces, fast load-times and thoughtful UX.</p>
+
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a class="inline-flex items-center gap-2 px-4 py-2 rounded-lg ring-1 ring-slate-200 dark:ring-slate-700" href="#projects">Projects</a>
+          <a class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-indigo-600 text-white" href="#experience">Experience</a>
+        </div>
+
+        <div class="mt-6">
+          <h4 class="text-sm uppercase opacity-70">Top skills</h4>
+          <div class="mt-3 flex flex-wrap gap-2">
+            <!-- skill chips -->
+            <span class="px-3 py-1 rounded-full bg-white/50 dark:bg-white/5 text-sm ring-1 ring-slate-200 dark:ring-slate-700">C++</span>
+            <span class="px-3 py-1 rounded-full bg-white/50 dark:bg-white/5 text-sm ring-1 ring-slate-200 dark:ring-slate-700">C</span>
+            <span class="px-3 py-1 rounded-full bg-white/50 dark:bg-white/5 text-sm ring-1 ring-slate-200 dark:ring-slate-700">Python</span>
+            <span class="px-3 py-1 rounded-full bg-white/50 dark:bg-white/5 text-sm ring-1 ring-slate-200 dark:ring-slate-700">React</span>
+             <span class="px-3 py-1 rounded-full bg-white/50 dark:bg-white/5 text-sm ring-1 ring-slate-200 dark:ring-slate-700">HTML</span>
+            <span class="px-3 py-1 rounded-full bg-white/50 dark:bg-white/5 text-sm ring-1 ring-slate-200 dark:ring-slate-700">JavaScript</span> <span class="px-3 py-1 rounded-full bg-white/50 dark:bg-white/5 text-sm ring-1 ring-slate-200 dark:ring-slate-700">Node.js</span>
+            <span class="px-3 py-1 rounded-full bg-white/50 dark:bg-white/5 text-sm ring-1 ring-slate-200 dark:ring-slate-700">MySQL</span>
+            <span class="px-3 py-1 rounded-full bg-white/50 dark:bg-white/5 text-sm ring-1 ring-slate-200 dark:ring-slate-700">MongoDB</span>
+            <span class="px-3 py-1 rounded-full bg-white/50 dark:bg-white/5 text-sm ring-1 ring-slate-200 dark:ring-slate-700">Tailwind</span>
+            <span class="px-3 py-1 rounded-full bg-white/50 dark:bg-white/5 text-sm ring-1 ring-slate-200 dark:ring-slate-700">Express.js</span>
+          </div>
+        </div>
+
+        <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-4 rounded-xl bg-white/60 dark:bg-slate-900/60 ring-1 ring-slate-200 dark:ring-slate-700 shadow backdrop-blur-sm">
+            <div class="text-sm uppercase opacity-70">Snapshot</div>
+            <div class="mt-2 text-sm">
+              <div class="font-medium">IIT Guwahati</div>
+              <div class="text-xs opacity-70 mt-1">DSA streak: <strong>120 days</strong></div>
+              <div class="text-xs opacity-70 mt-1">Open to: Full-time SDE roles</div>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-white/60 dark:bg-slate-900/60 ring-1 ring-slate-200 dark:ring-slate-700 shadow backdrop-blur-sm flex flex-col justify-between">
+            <div>
+              <div class="text-sm uppercase opacity-70">Contact</div>
+              <div class="mt-2 text-sm">rishavani24@gmail.com</div>
+              <div class="text-sm mt-1">github.com/RishavSargam</div>
+              <div class="text-sm mt-1">linkedin.com/in/rishav-raj</div>
+            </div>
+            <div class="mt-3 flex gap-2">
+              <a href="#" class="p-2 rounded-md ring-1 ring-slate-200 dark:ring-slate-700" title="GitHub">
+                <!-- GitHub icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.7 3 8.6 7.2 10 0.53.1.72-.24.72-.5v-1.86c-2.92.64-3.53-1.38-3.53-1.38-.48-1.2-1.17-1.52-1.17-1.52-.96-.66.07-.65.07-.65 1.07.07 1.64 1.1 1.64 1.1.94 1.62 2.46 1.15 3.06.88.09-.68.37-1.15.67-1.42-2.33-.26-4.78-1.16-4.78-5.18 0-1.15.41-2.08 1.09-2.81-.11-.27-.47-1.36.1-2.83 0 0 .89-.29 2.9 1.07a10.1 10.1 0 0 1 2.64-.36c.9.01 1.81.12 2.64.36 2.01-1.36 2.9-1.07 2.9-1.07.57 1.47.21 2.56.1 2.83.68.73 1.09 1.66 1.09 2.81 0 4.03-2.45 4.92-4.78 5.18.38.32.72.94.72 1.9v2.82c0 .27.19.61.73.5 4.2-1.4 7.2-5.34 7.2-10C23.1 5.3 18.3.5 12 .5z"/></svg>
+              </a>
+              <a href="#" class="p-2 rounded-md ring-1 ring-slate-200 dark:ring-slate-700" title="LinkedIn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.16 20.5h4.68V7.98H.16V20.5zM7.66 7.98v12.52h4.68v-6.84c0-1.73.32-3.48 2.52-3.48 2.18 0 2.2 2.06 2.2 3.62v6.7h4.7v-7.2c0-3.85-2.04-5.63-4.76-5.63-2.2 0-3.18 1.2-3.73 2.05h.05V7.98H7.66z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right aside -->
+      <aside class="p-6 rounded-2xl bg-gradient-to-br from-white to-slate-50 dark:from-slate-900 dark:to-slate-800 ring-1 ring-slate-200 dark:ring-slate-700 shadow-lg">
+        <div class="flex flex-col items-center text-center">
+          <div class="w-28 h-28 rounded-3xl bg-gradient-to-br from-indigo-500 to-teal-400 flex items-center justify-center text-white font-extrabold text-2xl shadow-lg">RR</div>
+          <div class="mt-3 font-semibold">Rishav Raj</div>
+          <div class="text-sm opacity-70">Software Developer</div>
+
+          <div class="mt-4 flex gap-2">
+            <a href="resume.pdf" download="Rishav_Raj_Resume.pdf" class="px-3 py-1 rounded-md bg-indigo-600 text-white">Download CV</a>
+            <a href="mailto:rishavani24@gmail.com" class="px-3 py-1 rounded-md ring-1 ring-slate-200 dark:ring-slate-700">Email</a>
+          </div>
+
+          <div class="mt-4 text-xs opacity-60">Available for interviews • Open to full-time roles</div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="mt-12">
+      <h3 class="text-2xl font-bold">Experience</h3>
+      <div class="mt-4 grid md:grid-cols-2 gap-4">
+        <article class="p-6 rounded-xl bg-white dark:bg-slate-900 ring-1 ring-slate-200 dark:ring-slate-700 shadow-sm card-anim">
+          <div>
+            <h4 class="font-semibold">Front-End Development Intern — SalesQueen Software Solutions</h4>
+            <div class="text-sm opacity-70">Chennai (Remote) • Aug 2025 • 3 months</div>
+          </div>
+          <ul class="mt-3 list-disc pl-5 text-sm opacity-80 space-y-1">
+            <li>Built responsive interfaces with performance and accessibility in mind.</li>
+            <li>Worked closely with designers and backend engineers to deliver features.</li>
+            <li>Improved Lighthouse score and reduced bundle size.</li>
+          </ul>
+        </article>
+
+        <article class="p-6 rounded-xl bg-white dark:bg-slate-900 ring-1 ring-slate-200 dark:ring-slate-700 shadow-sm card-anim">
+          <div>
+            <h4 class="font-semibold">Web Development Intern — Suvidha Foundation</h4>
+            <div class="text-sm opacity-70">Dec 2024 – Mar 2025 • Remote</div>
+          </div>
+          <ul class="mt-3 list-disc pl-5 text-sm opacity-80 space-y-1">
+            <li>Developed full-stack features including analytics and automation pipelines.</li>
+            <li>Maintained code quality and wrote documentation for maintainability.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="mt-12">
+      <h3 class="text-2xl font-bold">Projects</h3>
+
+      <div class="mt-4 grid md:grid-cols-2 gap-6">
+        <article class="p-5 rounded-2xl bg-white dark:bg-slate-900 ring-1 ring-slate-200 dark:ring-slate-700 shadow-sm card-anim">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h4 class="font-semibold">LeetTracker — Practice Dashboard</h4>
+              <p class="mt-2 text-sm opacity-75">Track problems, visualize streaks, smart filters and local persistence to keep you accountable.</p>
+            </div>
+            <div class="text-xs opacity-60">React • Tailwind</div>
+          </div>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="text-xs px-2 py-1 rounded-md ring-1 ring-slate-200 dark:ring-slate-700">React</span>
+            <span class="text-xs px-2 py-1 rounded-md ring-1 ring-slate-200 dark:ring-slate-700">Tailwind</span>
+          </div>
+          <div class="mt-4 flex gap-2">
+            <a href="#" class="px-3 py-1 rounded-md ring-1 ring-slate-200 dark:ring-slate-700">Repo</a>
+            <a href="#" class="px-3 py-1 rounded-md bg-indigo-600 text-white">Live</a>
+          </div>
+        </article>
+
+        <article class="p-5 rounded-2xl bg-white dark:bg-slate-900 ring-1 ring-slate-200 dark:ring-slate-700 shadow-sm card-anim">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h4 class="font-semibold">Gym Website — Responsive UI</h4>
+              <p class="mt-2 text-sm opacity-75">Pixel-perfect landing page with mobile-first layout, utilities and component-driven design.</p>
+            </div>
+            <div class="text-xs opacity-60">HTML • CSS</div>
+          </div>
+          <div class="mt-4 flex gap-2">
+            <a href="#" class="px-3 py-1 rounded-md ring-1 ring-slate-200 dark:ring-slate-700">Repo</a>
+            <a href="#" class="px-3 py-1 rounded-md bg-indigo-600 text-white">Live</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Education & PoR -->
+    <section class="mt-12 grid md:grid-cols-2 gap-6">
+      <div class="p-6 rounded-xl bg-slate-50 dark:bg-slate-900 ring-1 ring-slate-200 dark:ring-slate-700">
+        <h4 class="font-semibold">Education</h4>
+        <div class="mt-3">
+          <div class="font-medium">Indian Institute of Technology, Guwahati</div>
+          <div class="text-sm opacity-70">B.Tech in Computer Science • 2019 – 2025</div>
+
+          <div class="mt-3 font-medium">Senior Secondary School — CBSE</div>
+          <div class="text-sm opacity-70">78% • 2018</div>
+
+          <div class="mt-3 font-medium">Secondary School — CBSE</div>
+          <div class="text-sm opacity-70">9.2 CGPA • 2016</div>
+        </div>
+      </div>
+
+      <div class="p-6 rounded-xl bg-white dark:bg-slate-900 ring-1 ring-slate-200 dark:ring-slate-700">
+        <h4 class="font-semibold">Positions of Responsibility</h4>
+        <div class="mt-3 space-y-3 text-sm opacity-85">
+          <div>
+            <div class="font-medium">Inter Hostel Hockey Captain — Manas Hostel</div>
+            <div class="text-xs opacity-70">Apr 2021 – Apr 2023</div>
+            <div class="mt-1">Led a 12-hostel competition team; secured top positions multiple times.</div>
+          </div>
+
+          <div>
+            <div class="font-medium">Technical Team Member — Coding Club, IITG</div>
+            <div class="text-xs opacity-70">Aug 2022 – May 2023</div>
+            <div class="mt-1">Organized contests and mentored juniors in DSA & web dev.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="mt-12 p-6 rounded-2xl bg-gradient-to-r from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 ring-1 ring-slate-200 dark:ring-slate-700">
+      <div class="flex flex-col md:flex-row gap-6 items-start">
+        <div class="flex-1">
+          <h3 class="text-xl font-bold">Get in touch</h3>
+          <p class="mt-2 text-sm opacity-70">Open to Full-time SDE roles. Short message or a quick interview invite works best.</p>
+
+          <div class="mt-4 space-y-2">
+            <div class="text-sm">Email</div>
+            <div class="font-medium">rishavani24@gmail.com</div>
+
+            <div class="text-sm mt-2">GitHub</div>
+            <div class="font-medium"><a href="#">github.com/RishavSargam</a></div>
+
+            <div class="text-sm mt-2">LinkedIn</div>
+            <div class="font-medium"><a href="#">linkedin.com/in/rishav-raj</a></div>
+          </div>
+
+          <div class="mt-6 flex gap-3">
+            <a class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-indigo-600 text-white" href="mailto:rishavani24@gmail.com">Email Me</a>
+            <a class="inline-flex items-center gap-2 px-4 py-2 rounded-lg ring-1 ring-slate-200 dark:ring-slate-700" href="resume.pdf" download="Rishav_Raj_Resume.pdf">Download CV</a>
+          </div>
+        </div>
+
+        <div class="w-full md:w-72 p-4 rounded-xl bg-white/60 dark:bg-slate-900/60 ring-1 ring-slate-200 dark:ring-slate-700 shadow-sm">
+          <div class="text-sm uppercase opacity-70">Quick bio</div>
+          <div class="mt-2 text-sm">Final-year B.Tech CS student with internships in frontend & full-stack development. Daily DSA practice and system design learning for SDE interviews.</div>
+          <div class="mt-4 text-xs opacity-60">© <span id="year"></span> Rishav Raj</div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="mt-12 py-6 text-center text-sm opacity-70">Built with ❤️ — SDE Portfolio</footer>
+  </div>
+
+  <script>
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme toggle logic with persistence
+    const toggle = document.getElementById('themeToggle');
+    const sun = document.getElementById('icon-sun');
+    const moon = document.getElementById('icon-moon');
+
+    function applyTheme(isDark) {
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        moon.classList.remove('hidden');
+        sun.classList.add('hidden');
+      } else {
+        document.documentElement.classList.remove('dark');
+        sun.classList.remove('hidden');
+        moon.classList.add('hidden');
+      }
+    }
+
+    // initialize from localStorage or system preference
+    const stored = localStorage.getItem('rishav_theme');
+    let dark = stored !== null ? stored === 'dark' : window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(dark);
+
+    toggle.addEventListener('click', () => {
+      dark = !dark;
+      localStorage.setItem('rishav_theme', dark ? 'dark' : 'light');
+      applyTheme(dark);
+    });
+
+    // small fade-in animation class (applied via CSS by Tailwind's utility)
+    (function addFade() {
+      document.querySelectorAll('.animate-fade-in').forEach(el=>{
+        el.classList.add('opacity-0','translate-y-1');
+        setTimeout(()=> el.classList.remove('opacity-0','translate-y-1'), 60);
+      });
+    })();
+  </script>
+</body>
+</html>
+
